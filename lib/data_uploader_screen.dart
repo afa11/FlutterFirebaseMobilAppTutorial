@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_firebase_mobil_app_tutorial/controllers/question_paper/data_uploader.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'login_screen.dart';
 
 class DataUploaderScreen extends StatelessWidget {
-  DataUploaderScreen({Key? key}) : super(key: key);
+  DataUploaderScreen({super.key});
 
   final DataUploader controller = Get.put(DataUploader());
 
@@ -30,10 +28,10 @@ class DataUploaderScreen extends StatelessWidget {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const [
-              CircularProgressIndicator(strokeWidth: 3),
-              SizedBox(height: 24),
-              Text(
+            children: [
+              const CircularProgressIndicator(strokeWidth: 3),
+              const SizedBox(height: 24),
+              const Text(
                 "Uploading data...",
                 style: TextStyle(
                   fontSize: 16,
@@ -41,10 +39,20 @@ class DataUploaderScreen extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 "Please wait",
                 style: TextStyle(fontSize: 13, color: Colors.black45),
+              ),
+              const SizedBox(height: 32),
+              TextButton(
+                onPressed: () {
+                  Get.offAll(() => LoginScreen());
+                },
+                child: const Text(
+                  "Geri dön",
+                  style: TextStyle(fontSize: 14),
+                ),
               ),
             ],
           ),
